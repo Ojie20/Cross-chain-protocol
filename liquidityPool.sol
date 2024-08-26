@@ -85,6 +85,7 @@ contract liquidityPool {
     (uint256 amount1 ,uint256 amount2) = shouldAddLiquidity(amountTok1, amountTok2);
     token1.transferFrom(msg.sender, address(this), amount1);
     token2.transferFrom(msg.sender, address(this), amount2);
+    mintLPtoken(msg.sender);
   }
 
   function mintLPtoken(address to) public returns (uint256 liquidity) {
