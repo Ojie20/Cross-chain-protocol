@@ -50,16 +50,19 @@ contract liquidityPool {
     token2 = IERC20(_token2);
   }
 
+  // This gets the reserves of the tokens in the liquidity pool
   function getReserves() public returns (uint256 _reserve1, uint256 _reserve2) {
     _reserve1 = reserve1;
     _reserve2 = reserve2;
   }
 
+  // This Uses AMM to calculate token exchange
   function quote(uint256 amount1, uint256 _reserve1, uint256 _reserve2) public  returns (uint256) {
     uint256 amount2 = (amount1 * _reserve2) / _reserve1;
     return amount2;
   }
 
+  // This calculates the amount of each tokens to be added to keep the liquidity constant
   function shouldAddLiquidity(uint256 token1quan, uint256 token2quan) public  returns (uint256 amount1, uint256 amount2){
     (uint256 _reserve1 ,uint256 _reserve2)= getReserves();
     if(_reserve1==0 && _reserve2==0){
@@ -82,6 +85,7 @@ contract liquidityPool {
     (uint256 amount1 ,uint256 amount2) = shouldAddLiquidity(amountTok1, amountTok2);
     token1.transferFrom(msg.sender, address(this), amount1);
     token2.transferFrom(msg.sender, address(this), amount2);
+    mintLPtoken(msg.sender);
   }
 
   function mintLPtoken(address to) public returns (uint256 liquidity) {
