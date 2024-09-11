@@ -6,10 +6,10 @@ import "hardhat/console.sol";
 import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import {ERC20Burnable} from "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
 
-contract TokenMantleTestnet is ERC20, ERC20Burnable {
+contract MantleToken is ERC20, ERC20Burnable {
     address bridge;
 
-    constructor(address _bridge) ERC20("TokenMantleTestnet", "TMT") {
+    constructor(address _bridge) ERC20("MantleToken", "TMT") {
         bridge = _bridge;
     }
 
