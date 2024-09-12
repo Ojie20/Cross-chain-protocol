@@ -10,7 +10,7 @@ const main = async () => {
   let contractFactory = await hre.ethers.getContractFactory(
     'TokenMantleTestnet'
   )
-  let contract = await contractFactory.deploy(process.env.BRIDGE_WALLET)
+  let contract = await contractFactory.deploy(vars.get("SEPOLIA_PRIVATE_KEY"))
 
   await contract.deployed()
 

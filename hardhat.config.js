@@ -12,7 +12,11 @@ module.exports = {
     sepolia:{
       url: `https://eth-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY}`,
       accounts: [SEPOLIA_PRIVATE_KEY]
-    }
+    },
+    mantle:{
+      url: `https://mantle-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}`,
+      accounts: [SEPOLIA_PRIVATE_KEY]
+    },
   },
   etherscan: {
     apiKey: ETHERSCAN_API_KEY,
