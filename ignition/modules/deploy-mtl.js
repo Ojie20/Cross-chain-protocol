@@ -1,4 +1,5 @@
 const { vars } = require("hardhat/config")
+const hre = require("hardhat");
 
 const main = async () => {
   const [deployer] = (await hre.ethers.getSigners())
